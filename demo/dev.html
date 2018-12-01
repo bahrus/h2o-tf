@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul class="tree">
+            <li>Animals
+                <ul>
+                    <li>Birds</li>
+                    <li>Mammals
+                        <ul>
+                            <li>Elephant</li>
+                            <li>Mouse</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h2o-tf id='h2o'></h2o-tf>
+        <script type="module" src="../h2o-tf.js"></script>
+        <script>
+            h2o.transform = {
+                'ul': (context) =>{
+                    if(context.stack.length === 0){
+                        context.leaf.root = [];
+                        context.stack.push(context.leaf.root);
+                        context.leaf = context.leaf.root;
+                    }else{
+                        context.leaf.children = [];
+                        context.stack.push(context.leaf.children);
+                        context.leaf = context.leaf.children;
+                    }
+                    context.processChildren = true;
+                }, 
+                'li': (context) =>{
+                    const item = {
+                        text: context.el.firstChild.nodeValue
+                    };
+                    context.leaf.push(item);
+                    context.leaf = item;
+                    context.processChildren = true;
+                    
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

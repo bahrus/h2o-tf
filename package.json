@@ -12,6 +12,9 @@
   },
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "xtal-latx": "0.0.79"
+  },
   "bugs": {
     "url": "https://github.com/bahrus/h2o-tf/issues"
   },
