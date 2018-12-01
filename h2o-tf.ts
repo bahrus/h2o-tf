@@ -7,9 +7,7 @@ interface IContext{
     leaf: any,
     el: Element | null,
 }
-interface ITransformResponse{
 
-}
 
 export class H2O_TF extends XtallatX(HTMLElement){
     static get is(){
@@ -18,7 +16,7 @@ export class H2O_TF extends XtallatX(HTMLElement){
     static get observedAttributes(){
         return [disabled];
     }
-    _transform! : {[key: string] : (context: IContext) => ITransformResponse }
+    _transform! : {[key: string] : (context: IContext) => void }
     get transform(){
         return this._transform;
     }
