@@ -63,7 +63,6 @@ export class H2O_TF extends XtallatX(HTMLElement){
         } as IContext;
         
         this.process(target, context);
-        console.log(context);
         this.de('value', {
             value: this.value
         })
