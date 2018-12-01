@@ -37,6 +37,7 @@ export class H2O_TF extends XtallatX(HTMLElement){
     }
     _c!: boolean;
     connectedCallback(){
+        this.style.display = 'none';
         this._upgradeProperties([disabled, 'transform', 'target']);
         this._c = true;
         this.onPropsChange();
