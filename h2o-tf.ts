@@ -79,8 +79,9 @@ export class H2O_TF extends XtallatX(HTMLElement){
                         if(!(<any>node).matches) return;
                         this.process((<any>node) as Element, context)
                     });
-                    const p = context.stack.pop();
-                    context.leaf = p;
+                    const s = context.stack;
+                    s.pop();
+                    context.leaf = s.length > 0 ? s[s.length -1] : null;
                 }
             }
         }
