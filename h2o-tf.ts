@@ -1,6 +1,6 @@
 import {define} from 'xtal-latx/define.js';
 import {XtallatX, disabled} from 'xtal-latx/xtal-latx.js';
-interface IContext{
+export interface IContext{
     obj: any,
     stack: any[],
     processChildren: boolean;
