@@ -4,7 +4,8 @@
   "description": "TBD",
   "main": "h2o-tf.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node node_modules/xtal-test/serve.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "xtal-latx": "0.0.80"
+    "trans-render": "0.0.143"
+  },
+  "devDependencies": {
+    "xtal-test": "0.0.42"
   },
   "bugs": {
     "url": "https://github.com/bahrus/h2o-tf/issues"
