@@ -1,5 +1,5 @@
 console.log('i am here');
-export const test = 'hello';
+const test = 'hello';
 self.addEventListener('fetch', (event: any) => {
     //console.log(event);
     event.respondWith(

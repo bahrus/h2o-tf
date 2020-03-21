@@ -1,1 +1,1 @@
-import('./h2o-sw.js');
+importScripts('./h2o-sw.js');

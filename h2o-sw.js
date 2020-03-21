@@ -1,5 +1,6 @@
+"use strict";
 console.log('i am here');
-export const test = 'hello';
+const test = 'hello';
 self.addEventListener('fetch', (event) => {
     //console.log(event);
     event.respondWith(

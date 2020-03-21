@@ -8,7 +8,7 @@
 <body>
     <script>
         window.addEventListener('load', async () => {
-            const registration = await navigator.serviceWorker.register('/sw.js');
+            const registration = await navigator.serviceWorker.register('/h2o-sw.js');
             // Registration was successful
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
             setTimeout(async () =>{
@@ -20,7 +20,7 @@
                 });
                 const json = await resp.json();
                 console.log(json);
-            }, 1000);
+            }, 2000);
 
         });
     </script>
