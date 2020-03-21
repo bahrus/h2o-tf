@@ -11,7 +11,7 @@ self.addEventListener('fetch', (event) => {
     // }
 });
 function fetch2(event) {
-    console.log(event.request.headers);
+    console.log(event.request.url);
     return fetch(event.request);
 }
 function serialize(request) {

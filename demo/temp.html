@@ -13,7 +13,7 @@
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
             setTimeout(async () =>{
                 console.log('starting fetch');
-                const resp = await fetch('./generated.json', {
+                const resp = await fetch('./generated.json#iah', {
                     headers:{
                         'test': 'i am here'
                     }

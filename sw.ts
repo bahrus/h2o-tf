@@ -12,7 +12,7 @@ self.addEventListener('fetch', (event: any) => {
     // }
 });
 function fetch2(event: any){
-    console.log(event.request.headers);
+    console.log(event.request.url);
     return fetch(event.request);
 }
 function serialize(request: any) {
