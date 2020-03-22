@@ -49,3 +49,11 @@ async function fetchWithParamAddedToRequestBody(request: any) {
     return fetch(request2);
 }
 
+self.addEventListener('message', event => {
+    var data = event.data;
+
+    if (data.command === "h2o-intercept") {
+        console.log("Message the Page : ", data.message);
+    } 
+});
+

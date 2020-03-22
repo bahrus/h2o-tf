@@ -28,7 +28,7 @@ Listens for postMessages of the form:
 
 ```JSON
 {
-    "command": "h2o",
+    "command": "h2o-intercept",
     "message":{
         "request-url-matches": "https://(?<domain>[a-z\.]*)/(?<article>[a-z0-9-]*)",
         "where": {
@@ -50,9 +50,6 @@ Listens for postMessages of the form:
 }
 ```
 
-processor(fetchedHTML){
-    //stores object in indexedDB with id:  prefix + href 
-    //sends message when done
-}
+The service worker
 
 <h2o-lilies fetch href="..."></h2o-lilies> 

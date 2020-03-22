@@ -47,3 +47,9 @@ async function fetchWithParamAddedToRequestBody(request) {
     const request2 = await deserialize(serialized);
     return fetch(request2);
 }
+self.addEventListener('message', event => {
+    var data = event.data;
+    if (data.command === "h2o-intercept") {
+        console.log("Message the Page : ", data.message);
+    }
+});
