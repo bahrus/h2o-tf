@@ -2,14 +2,14 @@
 
 HTML to Object Transform
 
-For performance-oriented sites, where content is primarily, but not exclusively HTML-based, 
+For performance-oriented sites, where content is primarily, but not exclusively, HTML-based, 
 it's useful to be able to take incoming HTML, and, off the main thread, "reverse-engineer" the underlying
 data, and store it outside of RAM.
 
 <details>
     <summary>Use Case</summary>
 
-We may want the server to render an initial list of items in format that is fast and SEO-friendly. I.e. just send HTML to the browser. If the content is particularly large, perhaps only a portion can be displayed, the rest hidden via styling. Assume the total DOM tree(displayed and hidden) has, embedded in it, all the needed data for a richer view. Once the necessary dependencies needed to generate this richer view are downloaded, containing some expensive renderer (tree, chart, or grid, etc), we can then pass the Plain Old JavaScript Object (POJO) to the fancy renderer.
+We may want the server to render an initial list of items in a format that is fast and SEO-friendly. I.e. just send HTML to the browser. If the content is particularly large, perhaps only a portion can be displayed, the rest hidden via styling. Assume the total DOM tree(displayed and hidden) has, embedded in it, all the needed data for a richer view. Once the necessary dependencies needed to generate this richer view are downloaded, containing some expensive renderer (tree, chart, or grid, etc), we can then pass the Plain Old JavaScript Object (POJO) to the fancy renderer.
 
 
 
@@ -30,17 +30,14 @@ Listens for postMessages of the form:
 {
     "command": "h2o-intercept",
     "message":{
-        "request-url-matches": "https://(?<domain>[a-z\.]*)/(?<article>[a-z0-9-]*)",
-        "where": {
-            //domain check?
-        },
-        "storage-key":"a.b.c",
-        "root-type": "array",
+        "requestUrl": "https://mydomain.com/myResource/",
+        "storageKey":"a.b.c",
+        "rootType": "array",
         "transform":{
             "li": {
                 "type": "object",
                 "prop": "item",
-                "div[data-type='whatever'":{
+                "div[data-type='whatever']":{
                     "type": "object",
                     "prop": "whatever"
                 } 
@@ -50,6 +47,5 @@ Listens for postMessages of the form:
 }
 ```
 
-The service worker
 
-<h2o-lilies fetch href="..."></h2o-lilies> 
+<h2o-lilies fetch href="..." storage-key=a.b.c ></h2o-lilies> 
