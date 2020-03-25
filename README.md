@@ -48,6 +48,8 @@ This library endeavors to provide the opportunity to do the conversion from HTML
 
 </details>
 
+## Outline of Solution
+
 Service Worker:  h2o-sw.js
 
 If you have a main service worker that takes care of traditional PWA functionality, you can import this service (and other) service worker(s) using:
@@ -56,7 +58,42 @@ If you have a main service worker that takes care of traditional PWA functionali
 importScripts('./h2o-sw.js');
 ```
 
-Listens for postMessages of the form:
+Listens for postMessages in one of two forms:
+
+### Initial Light Children Conversion Request
+
+```JSON
+{
+    "command": "h2o-transform",
+    "message":{
+        "html": "[ugly JSON-ified html]",
+        "storageKey":"a.b.c",
+        "rootType": "array",
+        "transform":{
+            "li": {
+                "Type": "object",
+                "Prop": "item",
+                "div[data-type='whatever']":{
+                    "Type": "object",
+                    "Prop": "whatever"
+                } 
+            }
+        } 
+    } 
+}
+```
+
+Message sent via web component:
+
+```html
+<ul>
+    <li data-my-prop="something">
+        <div data-type="whatever">Hello</div>
+</ul>
+<h2o-lilies transform="previousElementSibling" storage-key=a.b.c ></h2o-lilies>
+```
+
+### Subsequent HTML Fragment Fetch Requests
 
 ```JSON
 {
@@ -67,11 +104,11 @@ Listens for postMessages of the form:
         "rootType": "array",
         "transform":{
             "li": {
-                "type": "object",
-                "prop": "item",
+                "Type": "object",
+                "Prop": "item",
                 "div[data-type='whatever']":{
-                    "type": "object",
-                    "prop": "whatever"
+                    "Type": "object",
+                    "Prop": "whatever"
                 } 
             }
         } 
@@ -79,5 +116,8 @@ Listens for postMessages of the form:
 }
 ```
 
+Message sent via web component:
 
-<h2o-lilies fetch href="..." storage-key=a.b.c ></h2o-lilies> 
+```html
+<h2o-lilies fetch href="..." storage-key=a.b.c ></h2o-lilies>
+```
