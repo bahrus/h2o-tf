@@ -43,7 +43,7 @@ This library endeavors to provide the opportunity to do the conversion from HTML
 
 </details>
 
-
+</details>
 
 Service Worker:  h2o-sw.js
 
