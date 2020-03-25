@@ -19,6 +19,8 @@ Many JQuery UI components add JS functionality on top of the primitive HTML sent
 
 However, the further the functionality strays from what is natively supported in the browser, the less likely the library is to try to simply "enhance" the HTML.
 
+</details>
+
 <details>
 <summary>SSR</summary>
 
@@ -27,6 +29,7 @@ The way [React apparently does this is described here.](https://github.com/whatw
 </details>
 
 <details>
+
 <summary>Progressive Enhancement with Web Components</summary>
 
 When [progressive enhancement of web components](https://developers.google.com/web/fundamentals/web-components/customelements#upgrades) is combined with the PRPL pattern, the results seem to outperform SSR solutions, in a seemingly simpler and less confining way.  Such techniques are compatible with all web server technologies. (Stencil may follow a slightly different approach, with very good results.)
